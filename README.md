@@ -1,1 +1,3 @@
-# rust-react
+# Rust + React + Typescript Project
+
+## Project Structure
