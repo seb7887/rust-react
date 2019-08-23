@@ -4,8 +4,11 @@
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
+#[macro_use]
+extern crate diesel;
 
-use rocket_contrib::databases::diesel;
+mod models;
+mod schema;
 
 #[database("postgres")]
 pub struct DbConn(diesel::PgConnection);
