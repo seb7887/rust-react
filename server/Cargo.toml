@@ -6,6 +6,7 @@ edition = "2018"
 
 [dependencies]
 rocket = "0.4.2"
+rocket_cors = { version = "0.5.0", default_features = false }
 diesel = { version = "1.4.2", features = ["postgres", "chrono"]}
 dotenv = "0.14.1"
 serde = "1.0"
