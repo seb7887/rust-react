@@ -5,13 +5,17 @@ authors = ["seb7887 <segurasebastian7887@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-rocket = "0.4.2"
+rocket = { version = "0.4.2", default_features = false }
 rocket_cors = { version = "0.5.0", default_features = false }
 diesel = { version = "1.4.2", features = ["postgres", "chrono"]}
 dotenv = "0.14.1"
-serde = "1.0"
+serde = { version = "1.0", features = ["derive"]}
 serde_json = "1.0"
+rust-crypto = "0.2.36"
 frank_jwt = "3.1.1"
+chrono = { version = "0.4.7", features = ["serde"] }
+validator = "0.9.0"
+validator_derive = "0.9.0"
 
 [dependencies.rocket_contrib]
 version = "0.4.2"

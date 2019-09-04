@@ -10,10 +10,18 @@ use rocket_cors::{AllowedHeaders, AllowedOrigins, Cors, CorsOptions};
 #[macro_use]
 extern crate diesel;
 
+use validator;
+#[macro_use]
+extern crate validator_derive;
+
 use rocket_contrib::json::JsonValue;
 
+mod auth;
+mod config;
 mod db;
+mod errors;
 mod models;
+mod routes;
 mod schema;
 
 fn cors_options() -> Cors {
@@ -49,6 +57,7 @@ fn not_found() -> JsonValue {
 
 pub fn rocket() -> rocket::Rocket {
   rocket::ignite()
+    .mount("/api", routes![routes::users::post_users])
     .attach(db::DbConn::fairing())
     .attach(cors_options())
     .mount("/hello", routes![world])
